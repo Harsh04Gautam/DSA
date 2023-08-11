@@ -88,4 +88,18 @@ template <typename E> void DoublyLinkedList<E>::removeBack() {
   remove(trailer->prev);
 }
 
+template <typename E> void listReverse(DoublyLinkedList<E> &L) {
+  DoublyLinkedList<E> T;
+  while (!L.empty()) {
+    E e = L.front();
+    L.removeFront();
+    T.addFront(e);
+  }
+  while (!T.empty()) {
+    E e = T.front();
+    T.removeFront();
+    L.addBack(e);
+  }
+}
+
 int main() { return EXIT_SUCCESS; }
